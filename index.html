@@ -1,0 +1,37 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+  <script language="javascript" type="text/javascript" src="sketch.js"></script>
+  <script language="javascript" type="text/javascript" src="timer.js"></script>
+  <script language="javascript" type="text/javascript" src="eventLog.js"></script>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <h1 id="Timer">00:00.000</h1>
+  <table>
+    <tr>
+      <th><h1>Score: </h1></th>
+      <th><h1 id="Score">0</h1></th>
+    </tr>
+  </table>
+  <table>
+    <tr>
+      <th><button type="button" onclick="startTimer()">Start</button></th>
+      <th><button type="button" onclick="clearAll()">Clear</button></th>
+    </tr>
+    <tr>
+      <th><button type="button" onclick="lap()">Lap</button></th>
+      <th><button type="button" onclick="pass()">Pass</button></th>
+      <th><button type="button" onclick="Retry()" id="Retry">Retry Start</button></th>
+    </tr>
+    <tr>
+      <th><button type="button" onclick="TZ1()">TZ1</button></th>
+      <th><button type="button" onclick="TZ2()">TZ2</button></th>
+      <th><button type="button" onclick="TZ3()">TZ3</button></th>
+    </tr>
+  </table>
+  <button type="button" onclick="Rongbay()">Rong Bay</button>
+  <div></div>
+  <textarea id="logText" rows="10" cols="50"></textarea>
+</html>
