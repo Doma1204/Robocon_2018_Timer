@@ -10,9 +10,10 @@ function clearAll() {
   resetTimer();
   eventLog = {};
   score = 0;
-  scoreText.innerHTML = "0"
-  text = ""
-  logText.value = ""
+  lapTime = 0;
+  scoreText.innerHTML = "0";
+  text = "";
+  logText.value = "";
 }
 
 function keyPressed() {

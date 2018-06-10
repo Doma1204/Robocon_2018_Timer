@@ -2,6 +2,7 @@ let timer = {"started": false,
              "startTime": 0,
              "currentTime": 0,
              "endTime": 0,
+             "CountDown": true,
              "timeString": "00:00.000",
              "minutes": 3};
 
@@ -9,7 +10,7 @@ let interval;
 let timerText;
 
 
-function countDownTimer() {
+function countTimer() {
   timer.currentTime = new Date().getTime();
 
   if (timer.currentTime >= timer.endTime) {
@@ -20,7 +21,7 @@ function countDownTimer() {
     setTimeout(() => timerText.innerHTML = "00:00.000", 1);
   }
 
-  let diff = timer.endTime - timer.currentTime;
+  let diff = timer.CountDown ? timer.endTime - timer.currentTime : timer.currentTime - timer.startTime;
 
   let millis = diff % 1000;
   let second = Math.floor(diff / 1000);
@@ -35,9 +36,10 @@ function startTimer() {
   if (!timer.started) {
     timer.started = true;
     timer.startTime = new Date().getTime();
-    timer.minutes = 3;
+    timer.minutes = document.getElementById("Minutes").value;
     timer.endTime = timer.startTime + timer.minutes * 60000;
-    interval = setInterval(countDownTimer, 1);
+    timer.CountDown = document.getElementById("CountDown").checked
+    interval = setInterval(countTimer, 1);
 
     log.timer.startTime = timer.startTime;
     log.timer.endTime = timer.endTime;
@@ -54,6 +56,7 @@ function resetTimer() {
   timer.startTime = 0;
   timer.currentTime = 0;
   timer.endTime = 0;
+  timer.calTime = 0;
   clearInterval(interval);
   timerText.innerHTML = "00:00.000";
 }
