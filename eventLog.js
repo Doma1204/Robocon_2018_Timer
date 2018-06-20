@@ -55,7 +55,6 @@ function TZ3() {
 
 function Rongbay() {
   if (timer.started) {
-    stopTimer();
     logEvent("Rong bay");
   }
 }
