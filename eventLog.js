@@ -60,19 +60,21 @@ function Rongbay() {
 }
 
 function Retry() {
-  if (!retry) {
-    retry = true;
-    retryText.innerHTML = "Retry End";
-    retryStartTime = logEvent("Retry Start", false);
-  } else {
-    retry = false;
-    retryText.innerHTML = "Retry Start";
+  if (timer.started) {
+    if (!retry) {
+      retry = true;
+      retryText.innerHTML = "Retry End";
+      retryStartTime = logEvent("Retry Start", false);
+    } else {
+      retry = false;
+      retryText.innerHTML = "Retry Start";
 
-    let diff = timer.currentTime - retryStartTime;
-    let second = Math.floor(diff / 1000);
-    let millis = diff % 1000;
+      let diff = timer.currentTime - retryStartTime;
+      let second = Math.floor(diff / 1000);
+      let millis = diff % 1000;
 
-    logEvent("Retry End (Time: " + second.toString() + "." + millis.toString().charAt(0) + "s)", false);
+      logEvent("Retry End (Time: " + second.toString() + "." + millis.toString().charAt(0) + "s)", false);
+    }
   }
 }
 

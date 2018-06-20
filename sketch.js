@@ -14,6 +14,9 @@ function clearAll() {
   scoreText.innerHTML = "0";
   text = "";
   logText.value = "";
+
+  retry = false;
+  retryText.innerHTML = "Retry Start";
 }
 
 function keyPressed() {
