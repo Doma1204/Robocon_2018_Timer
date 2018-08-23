@@ -2,34 +2,35 @@
 <head>
   <meta charset="UTF-8">
   <title>Robocon 2018 Timer</title>
-  <script language="javascript" type="text/javascript" src="libraries/p5.js"></script>
+
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.js"
+  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+  crossorigin="anonymous"></script>
+
   <script language="javascript" type="text/javascript" src="sketch.js"></script>
   <script language="javascript" type="text/javascript" src="timer.js"></script>
   <script language="javascript" type="text/javascript" src="eventLog.js"></script>
   <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
+<body onload="setup()" onkeydown="keyPressed(event)">
   <h1 id="Timer">00:00.000</h1>
   <table>
     <tr>
-      <th><h1>Score: </h1></th>
-      <th><h1 id="Score">0</h1></th>
+      <th><h1 class="ScoreTag">Score: </h1></th>
+      <th><h1 class="ScoreTag" id="Score">0</h1></th>
     </tr>
   </table>
-  <form action="">
-    <input type="radio" id="CountUp" name="CountWhat" value="CountUp">Count Up</input>
-    <input type="radio" id="CountDown" name="CountWhat" value="CountDown" checked="checked">Count Down</input>
-  </form>
-  <p>Minute:<input type="number" value="3" id="Minutes"/></p>
   <table>
     <tr>
-      <th><button type="button" onclick="startTimer()">Start</button></th>
+      <th><button type="button" id="startBtn" onclick="startTimer()">Start</button></th>
       <th><button type="button" onclick="clearAll()">Clear</button></th>
+      <!-- <th><button type="button" onclick="undo()">Undo</button></th> -->
     </tr>
     <tr>
       <th><button type="button" onclick="lap()">Lap</button></th>
       <th><button type="button" onclick="pass()">Pass</button></th>
-      <th><button type="button" onclick="Retry()" id="Retry">Retry Start</button></th>
+      <th><button type="button" onclick="Retry()" id="RetryBtn">Retry Start</button></th>
     </tr>
     <tr>
       <th><button type="button" onclick="TZ1()">TZ1</button></th>
@@ -40,4 +41,20 @@
   <button type="button" onclick="Rongbay()">Rong Bay</button>
   <div></div>
   <textarea id="logText" rows="10" cols="50"></textarea>
+  <!-- <div class="Setting">
+
+  </div> -->
+  <div class="Setting">
+    <p class="SettingText">Setting</p>
+    <form onchange="setTimerCountWhat()">
+      <input type="radio" id="CountUp" name="CountWhat" value="CountUp">Count Up</input>
+      <input type="radio" id="CountDown" name="CountWhat" value="CountDown" checked="checked">Count Down</input>
+    </form>
+    <p>Time:<input type="number" value="3" id="Minutes" onchange="setTimerTime()"/>:<input type="number" value="0" id="Seconds" onchange="setTimerTime()"/></p>
+    <form onchange="setTimerStyle()">Timer Style:
+        <input type="radio" id="MSm" name="TimerStyle" value="MSm" checked="checked">MM:SS.mmm</input>
+        <input type="radio" id="MS" name="TimerStyle" value="MS">MM:SS</input>
+        <input type="radio" id="S" name="TimerStyle" value="S">SSS</input>
+    </form>
+  </div>
 </html>

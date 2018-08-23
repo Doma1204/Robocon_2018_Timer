@@ -1,9 +1,13 @@
+let timerText, startStopText, scoreText, logText, retryText;
+
 function setup() {
   timerText = document.getElementById("Timer");
+  startStopText = document.getElementById("StartBtn")
   scoreText = document.getElementById("Score");
   logText = document.getElementById("logText");
-  retryText = document.getElementById("Retry");
-  noCanvas();
+  retryText = document.getElementById("RetryBtn");
+
+  writeTimer(timer.CountDown ? timer.minutes : 0, timer.CountDown ? timer.seconds : 0, 0);
 }
 
 function clearAll() {
@@ -19,8 +23,8 @@ function clearAll() {
   retryText.innerHTML = "Retry Start";
 }
 
-function keyPressed() {
-  switch (keyCode) {
+function keyPressed(event) {
+  switch (event.keyCode) {
     case 81: lap(); break; // Q
     case 87: pass(); break; // W
     case 69: Retry(); break; // E

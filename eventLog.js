@@ -1,7 +1,7 @@
-let emptyLog = {"timer": { "startTime": 0,
-                           "endTime": 0,
+let emptyLog = {timer: { startTime: 0,
+                           endTime: 0,
                          },
-                "event": []};
+                event: []};
 
 let log = emptyLog;
 let text = "";
@@ -9,10 +9,6 @@ let score = 0;
 let retry = false;
 let retryStartTime = 0;
 let lapTime = 1;
-
-let logText;
-let scoreText;
-let retryText;
 
 function lap() {
   if (timer.started) {
